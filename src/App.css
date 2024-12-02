@@ -5,6 +5,7 @@
   --accent-color: #D3D3D3; /* Light Gray */
   --background-color: #FFFFFF; /* White */
   --text-color: #333333; /* Dark Gray */
+  --lightgrey-color: #efefef; /* Dark Gray */
 }
 
 * {
@@ -167,3 +168,4 @@ body {
     padding: 24px 12px;
   }
 }
+
