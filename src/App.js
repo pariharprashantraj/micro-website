@@ -9,6 +9,7 @@ import {
   FaEye,
   FaFileDownload,
 } from "react-icons/fa";
+import ModalForm from "./component/modal/ModalForm"; // Import the modal form component
 import "./App.css";
 
 const sections = [
@@ -24,9 +25,9 @@ const sections = [
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isModalOpen, setModalOpen] = useState(true); // Modal opens by default
 
   const toggleMenu = () => {
-    // Only toggle the menu if screen size is less than or equal to 900px
     if (window.innerWidth <= 900) {
       setMenuOpen((prev) => !prev);
     }
@@ -94,7 +95,7 @@ const App = () => {
                   ? "active"
                   : ""
               }`}
-              onClick={() => handleSectionClick(section.name)} // Use the click handler
+              onClick={() => handleSectionClick(section.name)}
             >
               <span className="menu-icon-style">{section.icon}</span>
               {section.name}
@@ -124,7 +125,7 @@ const App = () => {
                   ? "active"
                   : ""
               }`}
-              onClick={() => handleSectionClick(section.name)} // Use the click handler
+              onClick={() => handleSectionClick(section.name)}
             >
               <span className="menu-icon-style">{section.icon}</span>
               {section.name}
@@ -133,12 +134,15 @@ const App = () => {
         </nav>
       </div>
 
+      {/* Modal Form */}
+      {isModalOpen && <ModalForm onClose={() => setModalOpen(false)} />}
+
       {/* Sections */}
       {sections.map((section, index) => (
         <Element
           key={index}
           name={section.name.toLowerCase().replace(/\s+/g, "-")}
-          id={section.name.toLowerCase().replace(/\s+/g, "-")} // Adding ID for scroll
+          id={section.name.toLowerCase().replace(/\s+/g, "-")}
         >
           <section className="section">
             <h2>{section.name}</h2>
