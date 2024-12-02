@@ -1,38 +1,171 @@
-.App {
-  text-align: center;
+/* Define CSS Variables for Theme Colors */
+:root {
+  --primary-color: #C8102E; /* Crimson Red */
+  --secondary-color: rgba(200, 16, 46, 0.8);
+  --accent-color: #D3D3D3; /* Light Gray */
+  --background-color: #FFFFFF; /* White */
+  --text-color: #333333; /* Dark Gray */
+  --lightgrey-color: #efefef; /* Dark Gray */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color); /* White background */
+  color: var(--text-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: 100px;
+  background-color: var(--background-color); /* White background for header */
+  color: var(--text-color);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed; /* Keep the header fixed at the top */
+  width: 100%;
+  z-index: 1000; /* Ensure the header is on top */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.project-title {
+  font-size: 24px;
+  color: var(--primary-color); /* Use primary color for the brand name */
+}
+
+.breadcrumb {
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: var(--text-color);
+  display: none; /* Hide by default */
+}
+
+.section {
+  padding: 120px 20px 50px; /* Add top padding for header space */
+  height: 100vh; /* Full viewport height for demonstration */
+  border-bottom: 1px solid var(--accent-color); /* Use accent color */
+}
+
+/* Navbar Items */
+.navbar {
+  display: flex;
+}
+
+.menu-item {
+  margin: 0 15px;
+  color: var(--text-color); /* Default text color */
+  text-decoration: none;
+  font-size: 14px; /* Default font size */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Add a hover effect with text enlargement */
+.menu-item:hover {
+  background-color: var(--secondary-color); /* Slightly less red for hover */
+  color: white; /* Change text color to white on hover */
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px 10px; /* Add padding for better touch targets */
+  font-size: 18px; /* Enlarged font size on hover */
+}
+
+.menu-item.active {
+  background-color: var(--primary-color); /* Fully red for selected tab */
+  color: white; /* Change text color to white on active */
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px 10px; 
+  font-size: 18px; 
+}
+
+
+/* Sliding Menu Styles */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: var(--background-color); /* Keep the background color as is */
+  color: var(--text-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 999; /* Above other content */
+  padding-top: 100px; /* Add padding to avoid header overlap */
+}
+
+.slide-menu.open {
+  right: 0; /* Slide in when open */
+}
+
+.menu-items {
+  padding: 12px;
+}
+
+.close-button {
+  background: none;
+  border: none;
   color: white;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-icon-style {
+  padding-right: 4px; /* Space between icon and name */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Mobile styles */
+@media (max-width: 1024px) {
+  .navbar {
+    display: none; /* Hide the regular navbar on mobile */
   }
-  to {
-    transform: rotate(360deg);
+  .menu-item{
+    padding: 8px 0;
+    margin: 12px 0
+  }
+  
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    background: var(--primary-color); /* Use accent color */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px; /* Smaller font for mobile */
+    align-items: center;
+    justify-content: flex-end; /* Align breadcrumb to the right */
+  }
+
+  .menu-icon {
+    display: block;
+    color: var(--background-color); 
   }
 }
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .breadcrumb {
+    display: none; /* Hide breadcrumb on desktop */
+  }
+
+  .navbar {
+    display: flex; /* Show navbar on desktop */
+  }
+  .menu-item.active{
+    padding: 24px 12px;
+  }
+}
+

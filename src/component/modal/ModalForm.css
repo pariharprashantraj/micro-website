@@ -1,0 +1,181 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--background-color);
+  border-radius: 10px;
+  position: relative;
+  width: 100%; /* Full width on mobile */
+  max-width: 600px; /* Limit maximum width for larger screens */
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.modal-form-layout {
+  display: flex;
+  gap: 20px;
+  width: 100%; /* Ensure the layout takes full width */
+}
+
+/* Left Section */
+.form-left {
+  flex: 0 0 120px; /* Fixed width for left section */
+  background-color: var(--lightgrey-color);
+  color: var(--primary-color);
+  padding: 20px;
+  
+  border-radius: 10px 0 0 0;
+}
+
+
+/* Right Section */
+.form-right {
+  flex: 0 0 150px; /* Fixed width for right section */
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 0 10px 0 0;
+}
+
+/* Hide left section on small screens and adjust widths */
+@media (max-width: 1024px) {
+  .form-left {
+    display: none; /* Hide left section */
+  }
+
+  .form-right {
+    flex: 0 0 150px; /* Take remaining space when left is hidden */
+  }
+
+  .modal-content {
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+/* Additional Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.status-message {
+  color: var(--primary-color);
+  font-size: 16px;
+  text-align: center;
+}
+
+.submit-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: var(--secondary-color);
+}
+
+.modal-footer {
+  text-align: center;
+  padding: 10px;
+  background: var(--primary-color);
+  border-radius: 0 0 10px 10px;
+  
+}
+
+.phone-link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-container{
+  flex: 1 1 250px;
+  height: 300px;
+  margin: 24px;
+}
+
+.form-header{
+  margin: 12px 0;
+}
+
+.large-icon {
+  font-size: 40px; /* Adjust the size as needed */
+}
+
+.small-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column{
+ flex-direction: column;
+}
+
+.flex-row{
+  flex-direction: row;
+ }
+
+ .option{
+  margin: 20px 0;
+ }
+ 
+ .option-right{
+  margin: 30px 0;
+ }
+
+ .project-title{
+  margin-bottom: 50px;
+ }
+
+ .centerd-text{
+  text-align: center;
+ }
+
+ .side-header{
+  margin-top: 24px;
+ }
+
+ .right-header{
+  margin: 36px 0;
+ }
