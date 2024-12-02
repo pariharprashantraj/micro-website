@@ -1,6 +1,7 @@
 /* Define CSS Variables for Theme Colors */
 :root {
   --primary-color: #C8102E; /* Crimson Red */
+  --secondary-color: rgba(200, 16, 46, 0.8);
   --accent-color: #D3D3D3; /* Light Gray */
   --background-color: #FFFFFF; /* White */
   --text-color: #333333; /* Dark Gray */
@@ -62,25 +63,29 @@ body {
   margin: 0 15px;
   color: var(--text-color); /* Default text color */
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px; /* Default font size */
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Smooth transition for hover */
 }
 
+/* Add a hover effect with text enlargement */
 .menu-item:hover {
-  background-color: rgba(200, 16, 46, 0.8); /* Slightly less red for hover */
+  background-color: var(--secondary-color); /* Slightly less red for hover */
   color: white; /* Change text color to white on hover */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px;
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px 10px; /* Add padding for better touch targets */
+  font-size: 18px; /* Enlarged font size on hover */
 }
 
-.menu-item.active { /* Active class for selected tab */
+.menu-item.active {
   background-color: var(--primary-color); /* Fully red for selected tab */
   color: white; /* Change text color to white on active */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 4px; /* Rounded corners */
   padding: 5px 10px; 
+  font-size: 18px; 
 }
+
 
 /* Sliding Menu Styles */
 .slide-menu {
@@ -102,7 +107,7 @@ body {
 }
 
 .menu-items {
-  padding: 20px;
+  padding: 12px;
 }
 
 .close-button {
@@ -121,16 +126,21 @@ body {
 }
 
 /* Mobile styles */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar {
     display: none; /* Hide the regular navbar on mobile */
   }
+  .menu-item{
+    padding: 8px 0;
+    margin: 12px 0
+  }
+  
 
   .breadcrumb {
     display: flex;
     flex-wrap: wrap;
     margin: 10px 0;
-    background: var(--accent-color); /* Use accent color */
+    background: var(--primary-color); /* Use accent color */
     padding: 10px;
     border-radius: 5px;
     font-size: 14px; /* Smaller font for mobile */
@@ -139,17 +149,21 @@ body {
   }
 
   .menu-icon {
-    display: block; /* Show the icon on mobile */
+    display: block;
+    color: var(--background-color); 
   }
 }
 
 /* Desktop styles */
-@media (min-width: 901px) {
+@media (min-width: 1025px) {
   .breadcrumb {
     display: none; /* Hide breadcrumb on desktop */
   }
 
   .navbar {
     display: flex; /* Show navbar on desktop */
+  }
+  .menu-item.active{
+    padding: 24px 12px;
   }
 }
